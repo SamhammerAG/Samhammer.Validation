@@ -1,4 +1,8 @@
 ﻿# Description
+- define model to validate
+- add multiple rules
+- execute validation
+- use the validation result
 
 ## Usage
 
