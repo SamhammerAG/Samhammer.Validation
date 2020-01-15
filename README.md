@@ -2,6 +2,28 @@
 
 ## Usage
 
+How to validate some input or model.
+
+```csharp
+var validation = new Validation<ValidationResult>()
+    .Load(input)
+    .Add(SampleRule);
+
+var result = await validation.ValidateAsync();
+
+if (!result.Succeeded)
+{
+    // TODO handle validation error
+}
+
+public ValidationResult SampleRule(string input)
+{
+    return string.IsNullOrEmpty(input)
+        ? new ValidationResult { Succeeded = false }
+        : new ValidationResult { Succeeded = true };
+}
+```
+
 ## Contribute
 
 #### How to publish package
