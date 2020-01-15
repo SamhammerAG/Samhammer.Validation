@@ -1,5 +1,5 @@
 ﻿# Description
-- define model to validate
+- load model to validate
 - add multiple rules
 - execute validation
 - use the validation result
