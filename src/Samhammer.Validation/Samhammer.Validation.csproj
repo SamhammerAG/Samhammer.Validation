@@ -5,10 +5,10 @@
     <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
     <Authors>Samhammer AG</Authors>
     <Company>Samhammer AG</Company>
-    <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.DictionaryJsonConverter</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.DictionaryJsonConverter</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/SamhammerAG/Samhammer.DictionaryJsonConverter/blob/master/LICENSE</PackageLicenseUrl>
-    <Version>1.1.0</Version>
+    <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Validation/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Validation/</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/SamhammerAG/Samhammer.Validation/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
