@@ -6,7 +6,10 @@
 
 ## Usage
 
-How to validate some input or model.
+#### How to add this to your project:
+- reference this package to your project: https://www.nuget.org/packages/Samhammer.DependencyInjection/
+
+#### Validate a model ####
 
 ```csharp
 var validation = new Validation<ValidationResult>()
@@ -26,6 +29,15 @@ public ValidationResult SampleRule(string input)
         ? new ValidationResult { Succeeded = false }
         : new ValidationResult { Succeeded = true };
 }
+
+#### Validate a model, loaded by func ####
+TODO
+
+#### Validate multiple models ####
+TODO
+
+#### Validate with custom result class ####
+TODO
 ```
 
 ## Contribute
