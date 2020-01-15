@@ -7,7 +7,7 @@
 ## Usage
 
 #### How to add this to your project:
-- reference this package to your project: https://www.nuget.org/packages/Samhammer.DependencyInjection/
+- reference this package to your project: https://www.nuget.org/packages/Samhammer.Validation/
 
 #### Validate a model ####
 
