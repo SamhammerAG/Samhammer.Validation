@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+    <Authors>Samhammer AG</Authors>
+    <Company>Samhammer AG</Company>
+    <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.DictionaryJsonConverter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.DictionaryJsonConverter</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/SamhammerAG/Samhammer.DictionaryJsonConverter/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

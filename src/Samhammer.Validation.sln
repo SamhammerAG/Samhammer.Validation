@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samhammer.Validation", "Samhammer.Validation\Samhammer.Validation.csproj", "{9FC91AD8-3FF7-4B74-B99E-D8F18DFA6B5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samhammer.Validation.Test", "Samhammer.Validation.Test\Samhammer.Validation.Test.csproj", "{6154A6EA-B40F-43E1-AFC8-3FE934F82B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CBEDC020-9E97-4C07-9CDD-22AB94C409CB}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FC91AD8-3FF7-4B74-B99E-D8F18DFA6B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC91AD8-3FF7-4B74-B99E-D8F18DFA6B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC91AD8-3FF7-4B74-B99E-D8F18DFA6B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC91AD8-3FF7-4B74-B99E-D8F18DFA6B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6154A6EA-B40F-43E1-AFC8-3FE934F82B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6154A6EA-B40F-43E1-AFC8-3FE934F82B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6154A6EA-B40F-43E1-AFC8-3FE934F82B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6154A6EA-B40F-43E1-AFC8-3FE934F82B40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242FF678-9DE9-4711-9E8D-1432DBE785C3}
+	EndGlobalSection
+EndGlobal
