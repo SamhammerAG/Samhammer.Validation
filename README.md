@@ -29,6 +29,7 @@ public ValidationResult SampleRule(string input)
         ? new ValidationResult { Succeeded = false }
         : new ValidationResult { Succeeded = true };
 }
+```
 
 #### Validate a model, loaded by func ####
 TODO
@@ -38,7 +39,6 @@ TODO
 
 #### Validate with custom result class ####
 TODO
-```
 
 ## Contribute
 
