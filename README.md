@@ -12,10 +12,8 @@
 #### Validate a model ####
 
 ```csharp
-var input = "test";
-
 var context = new Validation<ValidationResult>()
-    .Load(input)
+    .Load("test")
     .Add(SampleRule);
 
 var result = await context.ValidateAsync();
