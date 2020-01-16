@@ -11,11 +11,11 @@ namespace Samhammer.Validation.Test
         [InlineData("", false)]
         public async Task Validate(string input, bool expected)
         {
-            var validation = new Validation<ValidationResult>()
+            var context = new Validation<ValidationResult>()
                 .Load(input)
                 .Add(SampleRule);
 
-            var result = await validation.ValidateAsync();
+            var result = await context.ValidateAsync();
 
             result.Succeeded.Should().Be(expected);
         }
@@ -27,15 +27,15 @@ namespace Samhammer.Validation.Test
         [InlineData("", 0, false)]
         public async Task ValidateAll(string input1, int input2, bool expected)
         {
-            var validation1 = new Validation<ValidationResult>()
+            var context1 = new Validation<ValidationResult>()
                 .Load(input1)
                 .Add(SampleRule);
 
-            var validation2 = new Validation<ValidationResult>()
+            var context2 = new Validation<ValidationResult>()
                 .Load(input2)
-                .Add(SampleRule);
+                .Add(SampleRule2);
 
-            var result = await Validation<ValidationResult>.ValidateAllAsync(validation1, validation2);
+            var result = await Validation<ValidationResult>.ValidateAllAsync(context1, context2);
 
             result.Succeeded.Should().Be(expected);
         }
@@ -47,11 +47,11 @@ namespace Samhammer.Validation.Test
         {
             string LoadFunc() => input;
 
-            var validation = new Validation<ValidationResult>()
+            var context = new Validation<ValidationResult>()
                 .Load(LoadFunc)
                 .Add(SampleRule);
 
-            var result = await validation.ValidateAsync();
+            var result = await context.ValidateAsync();
 
             result.Succeeded.Should().Be(expected);
         }
@@ -61,11 +61,11 @@ namespace Samhammer.Validation.Test
         [InlineData("", false, ErrorCode.Error)]
         public async Task ValidateWithErrorCode(string input, bool expected, ErrorCode expectedCode)
         {
-            var validation = new Validation<CustomValidationResult>()
+            var context = new Validation<CustomValidationResult>()
                 .Load(input)
                 .Add(SampleRuleWithErrorCode);
 
-            var result = await validation.ValidateAsync();
+            var result = await context.ValidateAsync();
 
             result.Succeeded.Should().Be(expected);
             result.ErrorCode.Should().Be(expectedCode);
@@ -73,12 +73,10 @@ namespace Samhammer.Validation.Test
 
         public static ValidationResult SampleRule(string input)
         {
-            return string.IsNullOrEmpty(input)
-                ? new ValidationResult { Succeeded = false }
-                : new ValidationResult { Succeeded = true };
+            return new ValidationResult { Succeeded = input != null };
         }
 
-        public static ValidationResult SampleRule(int input)
+        public static ValidationResult SampleRule2(int input)
         {
             return input == 0
                 ? new ValidationResult { Succeeded = false }
@@ -100,7 +98,6 @@ namespace Samhammer.Validation.Test
             public CustomValidationResult()
             {
                 Succeeded = true;
-                ErrorCode = ErrorCode.Ok;
             }
 
             public CustomValidationResult(ErrorCode errorCode)
