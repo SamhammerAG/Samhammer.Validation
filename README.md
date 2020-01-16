@@ -71,7 +71,9 @@ public static CustomValidationResult SampleRuleWithErrorCode(string input)
         ? new CustomValidationResult(ErrorCode.Error)
         : new CustomValidationResult();
 }
+```
 
+```csharp
 public class CustomValidationResult : ValidationResult
 {
     public ErrorCode ErrorCode { get; set; }
