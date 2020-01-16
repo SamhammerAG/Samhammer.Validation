@@ -12,11 +12,11 @@
 #### Validate a model ####
 
 ```csharp
-var validation = new Validation<ValidationResult>()
+var context = new Validation<ValidationResult>()
     .Load(input)
     .Add(SampleRule);
 
-var result = await validation.ValidateAsync();
+var result = await context.ValidateAsync();
 
 if (!result.Succeeded)
 {
@@ -25,20 +25,75 @@ if (!result.Succeeded)
 
 public ValidationResult SampleRule(string input)
 {
-    return string.IsNullOrEmpty(input)
-        ? new ValidationResult { Succeeded = false }
-        : new ValidationResult { Succeeded = true };
+    return new ValidationResult { Succeeded = input != null };
 }
 ```
 
 #### Validate a model, loaded by func ####
-TODO
+
+```csharp
+async Task<Model> LoadModel() => await Repository.GetById(id);
+
+var context = new Validation<ValidationContract>()
+    .Load(LoadModel)
+    .Add(SampleRule);
+```
 
 #### Validate multiple models ####
-TODO
+
+```csharp
+var context1 = new Validation<ValidationResult>()
+    .Load(input1)
+    .Add(SampleRule);
+
+var context2 = new Validation<ValidationResult>()
+    .Load(input2)
+    .Add(SampleRule2);
+
+var result = await Validation<ValidationResult>.ValidateAllAsync(context1, context2);
+```
 
 #### Validate with custom result class ####
-TODO
+
+You can define your own result class with additional fields.
+This can be used to add something like an errorCode or an errorMessage by your rules.
+
+```csharp
+var context = new Validation<CustomValidationResult>()
+    .Load(input)
+    .Add(SampleRuleWithErrorCode);
+
+var result = await context.ValidateAsync();
+
+public static CustomValidationResult SampleRuleWithErrorCode(string input)
+{
+    return string.IsNullOrEmpty(input)
+        ? new CustomValidationResult(ErrorCode.Error)
+        : new CustomValidationResult();
+}
+
+public class CustomValidationResult : ValidationResult
+{
+    public ErrorCode ErrorCode { get; set; }
+
+    public CustomValidationResult()
+    {
+        Succeeded = true;
+    }
+
+    public CustomValidationResult(ErrorCode errorCode)
+    {
+        Succeeded = false;
+        ErrorCode = errorCode;
+    }
+}
+
+public enum ErrorCode
+{
+    Ok,
+    Error,
+}
+```
 
 ## Contribute
 
