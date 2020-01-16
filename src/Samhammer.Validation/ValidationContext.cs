@@ -8,19 +8,9 @@ namespace Samhammer.Validation
     {
         private readonly List<Func<TModel, Task<TResult>>> validations = new List<Func<TModel, Task<TResult>>>();
 
-        private readonly Func<Task<TModel>> loadFunc;
+        public Func<Task<TModel>> LoadFunc { get; set; }
 
-        private TModel model;
-
-        public ValidationContext(TModel model)
-        {
-            this.model = model;
-        }
-
-        public ValidationContext(Func<Task<TModel>> loadFunc)
-        {
-            this.loadFunc = loadFunc;
-        }
+        public TModel Model { get; set; }
 
         public ValidationContext<TModel, TResult> Add(Func<TModel, TResult> validateFunc)
         {
@@ -35,14 +25,14 @@ namespace Samhammer.Validation
 
         public async Task<TResult> ValidateAsync()
         {
-            if (loadFunc != null)
+            if (LoadFunc != null)
             {
-                model = await loadFunc();
+                Model = await LoadFunc();
             }
 
             foreach (var validation in validations)
             {
-                var result = await validation(model);
+                var result = await validation(Model);
                 if (!result.Succeeded)
                 {
                     return result;

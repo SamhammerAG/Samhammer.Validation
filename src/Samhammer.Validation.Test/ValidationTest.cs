@@ -41,6 +41,22 @@ namespace Samhammer.Validation.Test
         }
 
         [Theory]
+        [InlineData("test", true)]
+        [InlineData("", false)]
+        public async Task ValidateWithLoadFunc(string input, bool expected)
+        {
+            string LoadFunc() => input;
+
+            var validation = new Validation<ValidationResult>()
+                .Load(LoadFunc)
+                .Add(SampleRule);
+
+            var result = await validation.ValidateAsync();
+
+            result.Succeeded.Should().Be(expected);
+        }
+
+        [Theory]
         [InlineData("test", true, ErrorCode.Ok)]
         [InlineData("", false, ErrorCode.Error)]
         public async Task ValidateWithErrorCode(string input, bool expected, ErrorCode expectedCode)

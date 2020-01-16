@@ -7,12 +7,17 @@ namespace Samhammer.Validation
     {
         public ValidationContext<TModel, TResult> Load<TModel>(TModel model)
         {
-            return new ValidationContext<TModel, TResult>(model);
+            return new ValidationContext<TModel, TResult> { Model = model };
+        }
+
+        public ValidationContext<TModel, TResult> Load<TModel>(Func<TModel> loadFunc)
+        {
+            return new ValidationContext<TModel, TResult> { LoadFunc = () => Task.FromResult(loadFunc()) };
         }
 
         public ValidationContext<TModel, TResult> Load<TModel>(Func<Task<TModel>> loadFunc)
         {
-            return new ValidationContext<TModel, TResult>(loadFunc);
+            return new ValidationContext<TModel, TResult> { LoadFunc = loadFunc };
         }
 
         public static async Task<TResult> ValidateAllAsync(params IValidationContext<TResult>[] contexts)
