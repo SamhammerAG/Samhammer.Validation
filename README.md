@@ -1,9 +1,3 @@
-﻿# Description
-- load model to validate
-- add multiple rules
-- execute validation
-- use the validation result
-
 ## Usage
 
 #### How to add this to your project:
