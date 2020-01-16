@@ -56,6 +56,7 @@ var result = await Validation<ValidationResult>.ValidateAllAsync(context1, conte
 #### Validate with custom result class ####
 
 You can define your own result class with additional fields.
+
 This can be used to add something like an errorCode or an errorMessage by your rules.
 
 ```csharp
