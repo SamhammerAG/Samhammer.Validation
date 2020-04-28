@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
@@ -8,18 +7,15 @@
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Validation/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Validation/</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/SamhammerAG/Samhammer.Validation/blob/master/LICENSE</PackageLicenseUrl>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
 </Project>
