@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
@@ -7,14 +7,10 @@
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Validation/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Validation/</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/SamhammerAG/Samhammer.Validation/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>Logic that can be used for validation by defining custom rules</Description>
+    <Version>1.0.2</Version>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
