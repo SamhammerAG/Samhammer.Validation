@@ -73,7 +73,7 @@ namespace Samhammer.Validation.Test
 
         public static ValidationResult SampleRule(string input)
         {
-            return new ValidationResult { Succeeded = input != null };
+            return new ValidationResult { Succeeded = !string.IsNullOrEmpty(input) };
         }
 
         public static ValidationResult SampleRule2(int input)
